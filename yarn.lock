@@ -291,10 +291,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"auto-bind@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "auto-bind@npm:5.0.1"
-  checksum: 10c0/a703375350ea7b6e92405d8e6bcc6dbfb84b0d7c7172b33e5788a7593929a18227999ff9aa9c32436741d06d021e6672457b1cec73287efe3fab95cff6627eaf
+"auto-bind@npm:3":
+  version: 3.0.0
+  resolution: "auto-bind@npm:3.0.0"
+  peerDependencies:
+    "@types/react": ">=16.8.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/39b28d880dd4d9375f6e0c7c2e4ea9f97e693f544e930fa159eb63127753af7d6dc4bb4855fd853fa7bdf5c715373899c662f2d379fc1b5cba72220d1e5df600
   languageName: node
   linkType: hard
 
@@ -2196,7 +2201,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "urlshorter@workspace:."
   dependencies:
-    auto-bind: "npm:^5.0.1"
+    auto-bind: "npm:3"
     cors: "npm:^2.8.5"
     dotenv: "npm:^16.4.5"
     express: "npm:^4.18.3"

@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const { mainRoutes } = require("./src/router");
 const { swaggerDocs } = require("./src/config/swagger.config");
+const { ErrorHandler } = require("./src/common/errorHandler");
 require("dotenv").config();
 
 app.use(express.json());
@@ -13,10 +14,14 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(helmet());
 
-const port = process.env.PORT;
-swaggerDocs(app, port);
+swaggerDocs(app);
 
 app.use(mainRoutes);
+
+app.use((err, req, res, next) => {
+  ErrorHandler.sendError(err, req, res, next);
+});
+const port = process.env.PORT;
 
 app.listen(port, (err) => {
   if (err) return console.log(err);

@@ -1,37 +1,12 @@
 const swaggerUI = require("swagger-ui-express");
-const swaggerJSDoc = require("swagger-jsdoc");
-// const YAML = require("yamljs");
-// const path = require("path");
+const YAML = require("yamljs");
+const path = require("path");
 
-const options = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "Mini urlShorter API",
-      description:
-        "API endpoints for a mini blog services documented on swagger",
-      version: "1.0.0",
-    },
-    servers: [
-      {
-        url: "http://localhost:3000/",
-        description: "Local server",
-      },
-    ],
-  },
-  // looks for configuration in specified directories
-  apis: ["./src/config/*.yaml"],
-};
-const swaggerSpec = swaggerJSDoc(options);
+const swaggerJsDocs = YAML.load(path.resolve("./src/docs/swagger.docs.yaml"));
 
-function swaggerDocs(app, port) {
+function swaggerDocs(app) {
   // Swagger Page
-  app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
-  // Documentation in JSON format
-  app.get("/docs.json", (req, res) => {
-    res.setHeader("Content-Type", "application/json");
-    res.send(swaggerSpec);
-  });
+  app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 }
 
 module.exports = { swaggerDocs };
