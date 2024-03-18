@@ -8,21 +8,21 @@ info:
 paths:
   /shorter/{url}:
     post:
-      summary: Creates a shorted url from another one
-      description: Optional extended description in Markdown.
+      summary: Creates a shorted url from a big one (exires in 1 day)
+      description: this API creates a shorted link to your long link
       parameters:
         - in: path
           name: url
           required: true
           type: string
-          description: long url
+          description: long
       responses:
         200:
           description: OK
   /shorter/{id}:
     get:
-      summary: Creates a shorted url from another one
-      description: Optional extended description in Markdown.
+      summary: redirects the page to the log link
+      description: takes short link id and redirects the page to the main link
       parameters:
         - in: path
           name: id
