@@ -1,7 +1,9 @@
 {
   "name": "urlshorter",
-  "packageManager": "yarn@4.1.1",
+  "version": "1.0.0",
+  "description": "",
   "dependencies": {
+    "@liara/cli": "^5.6.0",
     "auto-bind": "3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -15,8 +17,13 @@
     "swagger-ui-express": "^5.0.0",
     "yamljs": "^0.3.0"
   },
+  "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon index.js",
-    "start": "node index.js"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
