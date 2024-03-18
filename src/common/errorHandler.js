@@ -10,10 +10,6 @@ class ErrorHandler {
       statusCode,
     });
   }
-
-  createError({ message, statusCode, data }) {
-    return { message, statusCode, data };
-  }
 }
 
 module.exports = {

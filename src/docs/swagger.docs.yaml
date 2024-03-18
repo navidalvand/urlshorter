@@ -19,3 +19,17 @@ paths:
       responses:
         200:
           description: OK
+  /shorter/{id}:
+    get:
+      summary: Creates a shorted url from another one
+      description: Optional extended description in Markdown.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          description: long url
+      responses:
+        200:
+          description: OK
+
